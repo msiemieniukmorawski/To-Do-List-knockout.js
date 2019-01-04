@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>TO DO knockout</title>
+	<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+	<link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+	<h1 class="title">TO DO knockout</h1>
+	<section class="container">
+ 		<div class="toDo__wrapper"> 
+			<ul  class="toDo__container" data-bind="foreach: tasks, visible: tasks().length > 0">
+				<li class="toDo__item">
+					<label class="toDo__label">
+						<input class="toDo__input-checked" type="checkbox" data-bind="checked: isDone" />
+						<span></span>
+					</label>
+					<input class="toDo__input-text" data-bind="value: title, disable: isDone" />
+					<a class="toDo__delete" href="#" data-bind="click: $parent.removeTask">x</a>
+				</li>
+			</ul>
+			<form class="toDo__addTask" data-bind="submit: addTask">
+			    <p class="toDo__addTask__headline">Add task:</p>
+			    <input class="toDo__input-text toDo__input__full" data-bind="value: newTaskText" placeholder="What needs to be done?" />
+				<button class="toDo__submit" type="submit">Add</button>
+			</form>
+		</div>
+	</section>
+
+
+	<script src="js/knockout-3.4.2.js"></script>
+	<script src="js/main.js"></script>
+</body>
+</html>
